@@ -28,8 +28,8 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        session[:username] = @user.name
-        session[:password] = @user.password
+        session[:user_id] = @user.name
+        session[:pass] = @user.password
 
         format.html { redirect_to posts_path, notice: 'User was successfully created.' }
         format.json { render action: 'show', status: :created, location: @user }

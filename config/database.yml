@@ -17,7 +17,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: login_test_development
+  database: travlr_development
   pool: 5
   host: localhost
   username: login_test
@@ -47,7 +47,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: login_test_test
+  database: travlr_test
   pool: 5
   host: localhost
   username: login_test
@@ -56,7 +56,7 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: login_test_production
+  database: travlr_production
   host: localhost
   pool: 5
   username: login_test

@@ -1,0 +1,13 @@
+<%= form_tag("/home/login", method: "post") do %>
+  <div class="field">
+    Username<br>
+    <%= text_field_tag (:name) %>
+  </div>
+  <div class="field">
+    Password<br>
+    <%= text_field_tag :password %>
+  </div>
+  <div class="actions">
+    <%= submit_tag("Login") %>
+  </div>
+<% end %>

@@ -4,7 +4,11 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Rails.cache.read("all_posts")
+    unless @posts
+      @posts = Post.all
+      Rails.cache.write("all_posts", @posts)
+    end
   end
 
   # GET /posts/1
@@ -64,7 +68,12 @@ class PostsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
-      @post = Post.find(params[:id])
+      key = 'post' + params[:id]
+      @post = Rails.cache.read(key)
+      unless @post
+        @post = Post.find(params[:id])
+        Rails.cache.write(key, @post)
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

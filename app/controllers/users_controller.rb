@@ -4,7 +4,11 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = Rails.cache.read("all_users")
+    unless @users
+      @users = User.all
+      Rails.cache.write("all_users", @users)
+    end
   end
 
   # GET /users/1
@@ -67,7 +71,12 @@ class UsersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params[:id])
+      key = 'user' + params[:id]
+      @user = Rails.cache.read(key)
+      unless @user
+        @user = User.find(params[:id])
+        Rails.cache.write(key, @user)
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -4,21 +4,32 @@
 
 <div class="row" id="event">
 
-	<% @messages.sort! {|x, y| y.created_at <=> x.created_at} %>
+	<% @u_messages.sort! {|x, y| y.created_at <=> x.created_at} %>
+	<% @r_messages.sort! {|x, y| y.created_at <=> x.created_at} %>
 	<table class="col-md-12 table-striped" id="messages">
 	<thead>
 		<tr>
 			<th> From</th>
 			<th> Subject </th>
 			<th> Open </th>
+			<th> Delete </th>
 		</tr>
 	</thead>
 	<tbody>
-		<% @messages.each do |msg| %>
+		<% @u_messages.each do |msg| %>
+			<tr >
+				<td id="unread"> <%= User.find(msg.sender_id).user_name %> </td>
+				<td id="unread"> <%= msg.subject %> </td>
+				<td> <%= link_to 'View', message_path(msg) %> </td>
+				<td> <%= link_to "Delete", msg, method: :delete, data: {confirm: 'Are you sure?'} %> </td>
+			</tr>
+		<% end %>
+		<% @r_messages.each do |msg| %>
 			<tr>
 				<td> <%= User.find(msg.sender_id).user_name %> </td>
 				<td> <%= msg.subject %> </td>
 				<td> <%= link_to 'View', message_path(msg) %> </td>
+				<td> <%= link_to "Delete", msg, method: :delete, data: {confirm: 'Are you sure?'} %> </td>
 			</tr>
 		<% end %>
 	</tbody>

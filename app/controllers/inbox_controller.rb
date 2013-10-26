@@ -4,8 +4,8 @@ class InboxController < ApplicationController
 	#GET /inbox
 	#GET /inbox.json
 	def index
-		@messages = Message.where(receiver_id: session[:user_id])
-		@user = User.all
+		@r_messages = Message.where(receiver_id: session[:user_id], read: true)
+		@u_messages = Message.where(receiver_id: session[:user_id], read: false)
 	end
 
 	private

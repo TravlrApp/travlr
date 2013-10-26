@@ -5,6 +5,8 @@ class MessagesController < ApplicationController
   # GET /messages/1
   # GET /messages/1.json
   def show
+    @message.read = true
+    @message.save
   end
 
   # GET /messages/new
@@ -27,7 +29,7 @@ class MessagesController < ApplicationController
 
     respond_to do |format|
       if @message.save
-        format.html { redirect_to @message, notice: 'Message was successfully created.' }
+        format.html { redirect_to inbox_path, notice: 'Message was successfully created.' }
         format.json { render action: 'show', status: :created, location: @message }
       else
         format.html { render action: 'new' }
@@ -41,7 +43,7 @@ class MessagesController < ApplicationController
   def destroy
     @message.destroy
     respond_to do |format|
-      format.html { redirect_to messages_url }
+      format.html { redirect_to inbox_path }
       format.json { head :no_content }
     end
   end

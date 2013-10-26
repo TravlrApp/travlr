@@ -2,15 +2,59 @@
 
 <h1 class="text-center"> <%= @user.first_name %> <%= @user.last_name %></h1>
 
-<h3> Username </h3>
-<p> <%= @user.user_name %> </p>
+<div class="row">
+	<h3 class="col-md-4 text-center"> Username </h3>
+	<h3 class="col-md-4 text-center"> Age </h3>
+	<h3 class="col-md-4 text-center"> Email </h3>
+</div>
 
-<h3> Age </h3>
-<p> <%= @user.age %> </p>
-
-<h3> Email: </h3>
-<p> <%= @user.email %> </p>
+<div class="row padded-small">
+	<div class="col-md-4 text-center"> <%= @user.user_name %> </div>
+	<div class="col-md-4 text-center"> <%= @user.age %> </div>
+	<div class="col-md-4 text-center"> <%= @user.email %> </div>
+</div>
 
 <% if session[:user_id] == @user.id %>
-	<%= link_to 'Edit', edit_user_path(@user), class: "btn btn-warning btn-sm"%>
+	<div class="row">
+		<div class="col-md-2 col-md-offset-5">
+			<%= link_to 'Edit', edit_user_path(@user), class: "btn btn-warning btn-block text-center"%>
+		</div>
+	</div>
 <% end %>
+
+<div class="row">
+	<h3 class="col-md-6 text-center"> Messages </h3>
+	<h3 class="col-md-6 text-center"> Posts </h3>
+</div>
+
+<div class="row">
+	<table class="col-md-4 col-md-offset-1 table-striped">
+		<tr>
+			<th> Sender </th>
+			<th> Subject </th>
+			<th> Examine </th>
+		</tr>
+		<% @messages.each do |msg| %>
+			<tr>
+				<td> <%= User.find(msg.sender_id).user_name %> </td>
+				<td> <%= msg.subject %> </td>
+				<td> <%= link_to 'View', message_path(msg) %> </td>
+			</tr>
+		<% end %>
+	</table>
+	<% @posts.sort! {|x, y| y.start <=> x.start} %>
+	<table class="col-md-4 col-md-offset-3 table-striped">
+		<tr>
+			<th> Start </th>
+			<th> Location </th>
+			<th> Examine </th>
+		</tr>
+		<% @posts.each do |post| %>
+			<tr>
+				<td> <%= post.start.to_formatted_s(:long_ordinal) %> </td>
+				<td> <%= post.location %> </td>
+				<td> <%= link_to 'View', post_path(post) %> </td>
+			</tr>
+		<% end %>
+	</table>
+</div>

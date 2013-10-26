@@ -7,4 +7,5 @@ class User < ActiveRecord::Base
 	validates :password, presence: true, length: {minimum: 4, maximum: 20}
 
 	has_many :posts
+	has_many :messages
 end

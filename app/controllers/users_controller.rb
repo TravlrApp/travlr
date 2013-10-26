@@ -15,9 +15,9 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @sent_messages = Message.find_by sender_id: session[:user_id]
-    @messages = Message.find_by receiver_id: session[:user_id]
-    @posts = Post.find_by user_id: session[:user_id]
+#    @sent_messages = Message.find_by sender_id: session[:user_id]
+    @messages = Message.where(receiver_id: session[:user_id])
+    @posts = Post.where(user_id: session[:user_id])
   end 
 
   # GET /users/new

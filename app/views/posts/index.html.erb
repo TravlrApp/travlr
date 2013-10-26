@@ -4,10 +4,10 @@
 <thead>
   <div class="row">
       <tr>
-        <th class="col-md-2 col-md-offset-1 text-center"> Start </h3>
-        <th class="col-md-2 text-center"> End </h3>
-        <th class="col-md-2 text-center"> Start </h3>
-        <th class="col-md-2 text-center"> End  </h3>
+        <th class="col-md-2 col-md-offset-1 text-center"> Start Date</h3>
+        <th class="col-md-2 text-center"> End Date</h3>
+        <th class="col-md-2 text-center"> Start Location</h3>
+        <th class="col-md-2 text-center"> End Location</h3>
         <th class="col-md-2 text-center"> Actions </h3>
       </tr>
   </div>
@@ -16,8 +16,8 @@
     <% @posts.each do |post| %>
       <div class="row">
         <tr>
-          <td class="col-md-2 col-md-offset-1 text-center"> <%= post.start.to_formatted_s(:long_ordinal) %> </div>
-          <td class="col-md-2 text-center"> <%= post.end.to_formatted_s(:long_ordinal) %> </div>
+          <td class="col-md-2 col-md-offset-1 text-center"> <%= post.start_date.to_formatted_s(:date) %> </div>
+          <td class="col-md-2 text-center"> <%= post.end_date.to_formatted_s(:date) %> </div>
           <td class="col-md-2 text-center"> <%= post.start_loc %> </div>
           <td class="col-md-2 text-center"> <%= post.end_loc %> </div>
           <td class="col-md-2 text-center"> 

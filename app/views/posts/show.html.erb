@@ -1,13 +1,23 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Start:</strong>
-  <%= @post.start.to_formatted_s(:long_ordinal) %>
+  <strong>Start Date:</strong>
+  <%= @post.start_date %>
 </p>
 
 <p>
-  <strong>End:</strong>
-  <%= @post.end.to_formatted_s(:long_ordinal) %>
+  <strong>End Date:</strong>
+  <%= @post.end_date %>
+</p>
+
+<p>
+  <strong>Start Time:</strong>
+  <%= @post.start_time.to_formatted_s(:time) %>
+</p>
+
+<p>
+  <strong>End Date:</strong>
+  <%= @post.end_time.to_formatted_s(:time) %>
 </p>
 
 <p>

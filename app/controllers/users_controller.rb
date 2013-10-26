@@ -37,7 +37,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         session[:user_id] = @user.id
-
+        Notifier.send_signup_email(@user).deliver
         format.html { redirect_to posts_path, notice: 'User was successfully created.' }
         format.json { render action: 'show', status: :created, location: @user }
       else

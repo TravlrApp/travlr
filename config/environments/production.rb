@@ -78,3 +78,13 @@ Travlr::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 end
+
+ActionMailer::Base.smtp_settings = {
+  :user_name => 'sclark01',
+  :password => '25travlr92',
+  :domain => 'thetravlr.herokuapp.com',
+  :address => 'smpt.sendgrid.net',
+  :port => 587,
+  :authentication => :plain,
+  :enable_starttls_auto => true
+}

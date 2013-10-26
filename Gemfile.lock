@@ -143,6 +143,7 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   jquery-ui-rails
+  mail
   memcachier
   pg
   rails (= 4.0.0)

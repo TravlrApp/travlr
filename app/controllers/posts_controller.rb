@@ -70,12 +70,7 @@ class PostsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
-      key = 'post' + params[:id]
-      @post = Rails.cache.read(key)
-      unless @post
-        @post = Post.find(params[:id])
-        Rails.cache.write(key, @post)
-      end
+      @post = Post.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -64,12 +64,7 @@ class UsersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      key = 'user' + params[:id]
-      @user = Rails.cache.read(key)
-      unless @user
-        @user = User.find(params[:id])
-        Rails.cache.write(key, @user)
-      end
+      @user = User.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

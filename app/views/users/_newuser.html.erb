@@ -12,16 +12,22 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    First Name: <%= f.text_field :first_name %>
   </div>
   <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
+    Last Name: <%= f.text_field :last_name %>
   </div>
   <div class="field">
-    <%= f.label :password %> (Must be 4-20 characters long) <br>
-    <%= f.text_field :password %>
+    Age: <%= f.number_field :age %>
+  </div>
+  <div class="field">
+    Email: <%= f.email_field :email %>
+  </div>
+  <div class="field">
+    Username: <%= f.text_field :user_name %>
+  </div>
+  <div class="field">
+    Password (Must be 4-20 characters long): <%= f.password_field :password %>
   </div>
   <div class="actions">
     <%= f.submit %>

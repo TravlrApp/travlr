@@ -14,13 +14,12 @@ class HomeController < ApplicationController
   end
 
   def authenticate
-  	password = User.find_by password: params[:password]
-  	username = User.find_by name: params[:name]
+  	user = User.find_by user_name: params[:user_name], password: params[:password]
 
-  	if (username && password) && (username == password)
+  	if user
       reset_session
-      session[:user_id] = username
-      session[:pass] = password
+      session[:user_id] = user[:id]
+      session[:pass] = user
   		redirect_to posts_path
   	else
       flash[:error] = "Invalid username/password combination"

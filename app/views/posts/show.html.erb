@@ -25,6 +25,11 @@
   <%= @post.description %>
 </p>
 
+<p>
+  <strong>Created By: </strong>
+  <%= User.find(@post.user_id).user_name %>
+</p>
+
 <%= link_to 'Back', posts_path, class: "btn btn-primary" %>
 
 <% if session[:user_id] == @post.user_id %>

@@ -6,7 +6,7 @@
 
 	<% @u_messages.sort! {|x, y| y.created_at <=> x.created_at} %>
 	<% @r_messages.sort! {|x, y| y.created_at <=> x.created_at} %>
-	<table class="col-md-12 table-striped" id="messages">
+	<table class="col-md-12 table-striped" id="msg">
 	<thead>
 		<tr>
 			<th> From</th>

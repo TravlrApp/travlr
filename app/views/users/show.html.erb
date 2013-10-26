@@ -24,23 +24,26 @@
 
 <h2 class="text-center"> My Events </h2>
 
-<div class="row" id="event">
 	<% @posts.sort! {|x, y| y.start <=> x.start} %>
-	<table class="col-md-12 table-striped" id="events">
+	<table class="table-striped" id="events">
 	<thead>
-		<tr>
-			<th> Start Time</th>
-			<th> Start Location </th>
-			<th> Examine </th>
-		</tr>
+		<div class="row">
+			<tr>
+				<th class="col-md-4 text-center"> Start Time</th>
+				<th class="col-md-4 text-center"> Start Location </th>
+				<th class="col-md-4 text-center"> Examine </th>
+			</tr>
+		</div>
 	</thead>
 	<tbody>
 		<% @posts.each do |post| %>
-			<tr>
-				<td> <%= post.start.to_formatted_s(:long_ordinal) %> </td>
-				<td> <%= post.start_loc %> </td>
-				<td> <%= link_to 'View', post_path(post) %> </td>
-			</tr>
+			<div class="row">
+				<tr>
+					<td class="col-md-4 text-center"> <%= post.start.to_formatted_s(:long_ordinal) %> </td>
+					<td class="col-md-4 text-center"> <%= post.start_loc %> </td>
+					<td class-"col-md-4 text-center"> <%= link_to 'View', post_path(post) %> </td>
+				</tr>
+			</div>
 		<% end %>
 	</tbody>
 	</table>

@@ -29,7 +29,7 @@ class MessagesController < ApplicationController
 
     respond_to do |format|
       if @message.save
-        format.html { redirect_to inbox_path, notice: 'Message was successfully created.' }
+        format.html { redirect_to inbox_path }
         format.json { render action: 'show', status: :created, location: @message }
       else
         format.html { render action: 'new' }

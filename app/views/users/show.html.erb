@@ -24,7 +24,7 @@
 
 <h2 class="text-center"> My Events </h2>
 
-	<% @posts.sort! {|x, y| y.start <=> x.start} %>
+	<% @posts.sort! {|x, y| y.start_date <=> x.start_date} %>
 	<table class="table-striped" id="events">
 	<thead>
 		<div class="row">
@@ -39,9 +39,9 @@
 		<% @posts.each do |post| %>
 			<div class="row">
 				<tr>
-					<td class="col-md-4 text-center"> <%= post.start.to_formatted_s(:long_ordinal) %> </td>
+					<td class="col-md-4 text-center"> <%= post.start_date.to_formatted_s(:date) %> </td>
 					<td class="col-md-4 text-center"> <%= post.start_loc %> </td>
-					<td class-"col-md-4 text-center"> <%= link_to 'View', post_path(post) %> </td>
+					<td class-"col-md-4"> <%= link_to 'View', post_path(post) %> </td>
 				</tr>
 			</div>
 		<% end %>

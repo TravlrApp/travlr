@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-LoginTest::Application.load_tasks
+Travlr::Application.load_tasks

@@ -8,11 +8,16 @@ class HomeController < ApplicationController
   def login
   end
 
+  def logout
+    reset_session
+    redirect_to welcome_path
+  end
+
   def authenticate
   	password = User.find_by password: params[:password]
   	username = User.find_by name: params[:name]
 
-  	if username && password
+  	if (username && password) && (username == password)
       reset_session
       session[:user_id] = username
       session[:pass] = password

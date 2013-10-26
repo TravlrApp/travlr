@@ -1,8 +1,11 @@
-LoginTest::Application.routes.draw do
+Travlr::Application.routes.draw do
+
   root 'home#welcome'
   get "home/welcome" => 'home#welcome', as: :welcome
   get "home/login" => 'home#login', as: :login
+  get "home/logout" => 'home#logout', as: :logout
   post "home/login" => 'home#authenticate', as: :authenticate  
+
   resources :users
   resources :posts
   

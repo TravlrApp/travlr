@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate
+  before_action :set_user, only: [:show, :edit, :update]
+  before_action :authenticate, only: [:index, :show, :edit, :update]
 
   # GET /users
   # GET /users.json
@@ -56,16 +56,6 @@ class UsersController < ApplicationController
         format.html { render action: 'edit' }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # DELETE /users/1
-  # DELETE /users/1.json
-  def destroy
-    @user.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url }
-      format.json { head :no_content }
     end
   end
 

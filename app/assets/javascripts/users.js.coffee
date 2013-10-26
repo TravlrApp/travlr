@@ -4,7 +4,6 @@
 
 jQuery ->
 		$('#events').dataTable()
-		$('#messages').dataTable()
 
 $(document).ready(ready)
 $(document).on('page:load', ready)

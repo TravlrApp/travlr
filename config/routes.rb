@@ -1,5 +1,7 @@
 Travlr::Application.routes.draw do
 
+  resources :messages
+
   root 'home#welcome'
   get "home/welcome" => 'home#welcome', as: :welcome
   get "home/login" => 'home#login', as: :login

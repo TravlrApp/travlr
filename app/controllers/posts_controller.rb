@@ -84,7 +84,7 @@ class PostsController < ApplicationController
     end
 
     def authenticate
-      unless session[:user_id] && session[:pass]
+      unless session[:user_id]
         flash[:notice] = "You must be logged in to view this page"
         redirect_to login_path
       end

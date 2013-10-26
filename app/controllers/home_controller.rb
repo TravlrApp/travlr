@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def welcome
-    if session[:user_id] && session[:pass]
+    if session[:user_id]
       redirect_to posts_path
     end
   end
@@ -19,7 +19,6 @@ class HomeController < ApplicationController
   	if user
       reset_session
       session[:user_id] = user[:id]
-      session[:pass] = user
   		redirect_to posts_path
   	else
       flash[:error] = "Invalid username/password combination"

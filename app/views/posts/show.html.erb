@@ -2,12 +2,12 @@
 
 <p>
   <strong>Start:</strong>
-  <%= @post.start %>
+  <%= @post.start.to_formatted_s(:long_ordinal) %>
 </p>
 
 <p>
   <strong>End:</strong>
-  <%= @post.end %>
+  <%= @post.end.to_formatted_s(:long_ordinal) %>
 </p>
 
 <p>
@@ -20,5 +20,9 @@
   <%= @post.description %>
 </p>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<%= link_to 'Back', posts_path, class: "btn btn-primary" %>
+
+<% if session[:user_id] == @post.user_id %>
+	<%= link_to 'Edit', edit_post_path(@post), class: "btn btn-warning" %>
+<% end %>
+

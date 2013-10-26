@@ -15,6 +15,9 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @sent_messages = Message.find_by sender_id: session[:user_id]
+    @messages = Message.find_by receiver_id: session[:user_id]
+    @posts = Post.find_by user_id: session[:user_id]
   end 
 
   # GET /users/new
@@ -33,8 +36,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        session[:user_id] = @user.name
-        session[:pass] = @user.password
+        session[:user_id] = @user.id
 
         format.html { redirect_to posts_path, notice: 'User was successfully created.' }
         format.json { render action: 'show', status: :created, location: @user }
@@ -76,7 +78,7 @@ class UsersController < ApplicationController
     end
 
     def authenticate
-      unless session[:user_id] && session[:pass]
+      unless session[:user_id]
         flash[:notice] = "You must be logged in to view this page"
         redirect_to login_path
       end

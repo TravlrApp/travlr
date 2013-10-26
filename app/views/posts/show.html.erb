@@ -30,6 +30,8 @@
   <%= User.find(@post.user_id).user_name %>
 </p>
 
+<%= link_to "Contact Organizer", new_message_path(user_name: User.find(@post.user_id).user_name), class: "btn btn-success" %>
+
 <%= link_to 'Back', posts_path, class: "btn btn-primary" %>
 
 <% if session[:user_id] == @post.user_id %>

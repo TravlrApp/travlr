@@ -12,7 +12,12 @@
   <% end %>
 
   <div class="field">
-    To Username: <%= f.text_field :receiver_username %>
+    <% if params[:user_name] %>
+      Username: <%= f.text_field :receiver_username, :value => params[:user_name] %>
+    <% else %>
+      Username: <%= f.text_field :receiver_username %>
+    <%end%>
+
   </div>
   <div class="field">
     Subject: <%= f.text_field :subject %>

@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate
 
   # GET /posts
   # GET /posts.json
@@ -79,5 +80,12 @@ class PostsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
       params.require(:post).permit(:start, :end, :location, :description)
+    end
+
+    def authenticate
+      unless session[:user_id] && session[:pass]
+        flash[:notice] = "You must be logged in to view this page"
+        redirect_to login_path
+      end
     end
 end

@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate
 
   # GET /users
   # GET /users.json
@@ -84,7 +85,10 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :password)
     end
 
-    def logged_in?
-      session[:username] && session[:password]
+    def authenticate
+      unless session[:user_id] && session[:pass]
+        flash[:notice] = "You must be logged in to view this page"
+        redirect_to login_path
+      end
     end
 end

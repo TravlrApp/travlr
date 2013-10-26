@@ -1,3 +1,7 @@
+<% flash.each do |name, msg| %>
+  <div> <% msg %> </div>
+<% end %>
+
 <%= form_tag("/home/login", method: "post") do %>
   <div class="field">
     Username<br>

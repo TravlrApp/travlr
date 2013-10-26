@@ -13,10 +13,12 @@ class HomeController < ApplicationController
   	username = User.find_by name: params[:name]
 
   	if username && password
+      reset_session
       session[:user_id] = username
       session[:pass] = password
   		redirect_to posts_path
   	else
+      flash[:error] = "Invalid username/password combination"
   		redirect_to login_path
   	end
   end

@@ -23,6 +23,7 @@ class MessagesController < ApplicationController
     @message.receiver_username = info[:receiver_username]
     recipient = User.find_by user_name: info[:receiver_username]
     @message.receiver_id = recipient.id
+    @message.read = false;
 
     respond_to do |format|
       if @message.save

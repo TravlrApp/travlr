@@ -7,6 +7,7 @@ Travlr::Application.routes.draw do
   get "home/login" => 'home#login', as: :login
   get "home/logout" => 'home#logout', as: :logout
   post "home/login" => 'home#authenticate', as: :authenticate  
+  get 'inbox' => 'inbox#index', as: :inbox
 
   resources :users
   resources :posts

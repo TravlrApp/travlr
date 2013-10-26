@@ -26,6 +26,7 @@
         <li><%= link_to 'New Message', new_message_path %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to 'Inbox', inbox_path %></li>
         <li><%= link_to 'My Account', user_path(session[:user_id]) %></li>
         <li><%= link_to 'Logout', logout_path %><li>
       </ul>

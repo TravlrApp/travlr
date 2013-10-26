@@ -1,19 +1,30 @@
 <h1 class="text-center">All Posts</h1>
 
-<div class="row">
-  <h3 class="col-md-3 text-center"> Start </h3>
-  <h3 class="col-md-3 text-center"> End </h3>
-  <h3 class="col-md-3 text-center"> Location </h3>
-  <h3 class="col-md-3 text-center"> Actions </h3>
-</div>
-
-<% @posts.each do |post| %>
+<table class="col-md-4 col-md-offset-1 table-striped" id="posts">
+<thead>
   <div class="row">
-    <div class="col-md-3 text-center"> <%= post.start.to_formatted_s(:long_ordinal) %> </div>
-    <div class="col-md-3 text-center"> <%= post.end.to_formatted_s(:long_ordinal) %> </div>
-    <div class="col-md-3 text-center"> <%= post.location %> </div>
-    <div class="col-md-3 text-center"> 
-      <%= link_to 'More Info', post, class: "btn btn-primary btn-xs" %>
-    </div>
+      <tr>
+        <th class="col-md-3 text-center"> Start </h3>
+        <th class="col-md-3 text-center"> End </h3>
+        <th class="col-md-3 text-center"> Start </h3>
+        <th class="col-md-3 text-center"> End  </h3>
+        <th class="col-md-3 text-center"> Actions </h3>
+      </tr>
   </div>
-<% end %>
+</thead>
+<tbody>
+    <% @posts.each do |post| %>
+      <div class="row">
+        <tr>
+          <td class="col-md-3 text-center"> <%= post.start.to_formatted_s(:long_ordinal) %> </div>
+          <td class="col-md-3 text-center"> <%= post.end.to_formatted_s(:long_ordinal) %> </div>
+          <td class="col-md-3 text-center"> <%= post.start_loc %> </div>
+          <td class="col-md-3 text-center"> <%= post.end_loc %> </div>
+          <td class="col-md-3 text-center"> 
+            <%= link_to 'More Info', post, class: "btn btn-primary btn-xs" %>
+        </tr>
+      </div>
+    <% end %>
+</tbody>
+</table>
+

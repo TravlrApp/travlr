@@ -40,6 +40,13 @@ gem 'rails_12factor', group: :production
 
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails', :github => 'anjlab/bootstrap-rails'
 
+gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
+
+gem 'jquery-ui-rails'
+
+gem 'jquery-turbolinks'
+
+
 ruby '2.0.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

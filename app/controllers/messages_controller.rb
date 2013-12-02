@@ -18,7 +18,7 @@ class MessagesController < ApplicationController
   # POST /messages.json
   def create
     info = message_params
-    @message = Message.new
+    @message = Message.new( )
     @message.subject = info[:subject]
     @message.body = info[:body]
     @message.sender_id = session[:user_id]

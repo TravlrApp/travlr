@@ -35,7 +35,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post }
-        format.json { render action: 'show', status: :created, start_loc: @post }
+        format.json { render action: 'show', status: :created, location: @post }
       else
         format.html { render action: 'new' }
         format.json { render json: @post.errors, status: :unprocessable_entity }
@@ -75,7 +75,7 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:start_time, :end_time, :start_date, :end_date, :start_loc, :end_loc, :description)
+      params.require(:post).permit(:start_date, :end_date, :location, :description)
     end
 
     def authenticate

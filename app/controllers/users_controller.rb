@@ -2,16 +2,6 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
   before_action :authenticate, only: [:index, :show, :edit, :update]
 
-  # GET /users
-  # GET /users.json
-  def index
-    @users = Rails.cache.read("all_users")
-    unless @users
-      @users = User.all
-      Rails.cache.write("all_users", @users)
-    end
-  end
-
   # GET /users/1
   # GET /users/1.json
   def show

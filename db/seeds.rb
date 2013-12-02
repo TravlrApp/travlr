@@ -9,5 +9,5 @@
 User.delete_all
 Post.delete_all
 
-User.create({user_name: 'ctaylor', first_name: 'Connor', last_name: 'Taylor', age: '19', email: 'test1@test.com', password: '1234'})
+User.create({user_name: 'ctaylor', first_name: 'Connor', last_name: 'Taylor', age: '20', email: 'test1@test.com', password: '1234'})
 User.create({user_name: 'sclark', first_name: 'Shea', last_name: 'Clark-Tieche', age: '21', email: 'test2@test.com', password: '12345'})

@@ -1,5 +1,6 @@
 Travlr::Application.routes.draw do
 
+  resources :recommenders, only: [:create, :update, :destroy]
   resources :messages
 
   root 'home#welcome'
@@ -8,8 +9,9 @@ Travlr::Application.routes.draw do
   get "home/logout" => 'home#logout', as: :logout
   post "home/login" => 'home#authenticate', as: :authenticate  
   get 'inbox' => 'inbox#index', as: :inbox
+  get 'recommend' => 'recommenders#recommend', as: :recommendation3
 
-  resources :users
+  resources :users, except: :index
   resources :posts
   
   # The priority is based upon order of creation: first created -> highest priority.

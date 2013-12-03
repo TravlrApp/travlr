@@ -1,3 +1,24 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#fb {
+	text-align: center;
+}
+
+.center {
+    margin: 0 auto;
+    display: block;
+    font-size:20px;
+    font-weight:700;
+    color:#fff;
+    line-height:35px;
+    width:90px; /* width set */
+    text-align:center;
+    background:url(../images/button_form.gif) top repeat-x #308da2;
+    border-radius:10px;
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;behavior:url(js/PIE.htc);
+    position:relative;
+    text-decoration:none
+}

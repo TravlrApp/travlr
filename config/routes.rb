@@ -9,7 +9,7 @@ Travlr::Application.routes.draw do
   get "home/logout" => 'home#logout', as: :logout
   post "home/login" => 'home#authenticate', as: :authenticate  
   get 'inbox' => 'inbox#index', as: :inbox
-  get 'recommend' => 'recommenders#recommend', as: :recommendation3
+  get 'recommend' => 'recommenders#recommend', as: :recommendation
 
   resources :users, except: :index
   resources :posts

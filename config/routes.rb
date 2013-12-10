@@ -4,6 +4,7 @@ Travlr::Application.routes.draw do
   resources :messages
 
   root 'home#welcome'
+  get "prefs" => 'user_prefs#index'
   get "home/welcome" => 'home#welcome', as: :welcome
   get "home/login" => 'home#login', as: :login
   get "home/logout" => 'home#logout', as: :logout

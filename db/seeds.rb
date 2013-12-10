@@ -7,12 +7,16 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Post.delete_all
-
+UserPrefs.delete_all
 
 locations = ['New York', 'Boston', 'Hong Kong', 'London', 'Tokyo', 'Chicago', 'San Fransisco', 'Paris', 'Vancouver', 'Madrid', 'Mings house']
-activities = ['Swimming', 'Hiking', 'Guided Tour', 'Diving', 'Climbing', 'Skydiving', 'Eating', 'Clubbing', 'Beach', 'Skiing', 'Snowboarding', 'Ziplining']
+activities = ['Swimming', 'Hiking', 'Touring', 'Diving', 'Climbing', 'Skydiving', 'Eating', 'Clubbing', 'Beach', 'Skiing', 'Snowboarding', 'Ziplining']
 user_ids = [26, 27, 28, 29] #need to change if users are reset
 
+user_ids.each do |id|
+	UserPrefs.create({user_id: id, swimming: rand(10) + 1, hiking: rand(10) + 1, touring: rand(10) + 1, diving: rand(10) + 1, climbing: rand(10) + 1, skydiving: rand(10) + 1, eating: rand(10) + 1, 
+										clubbing: rand(10) + 1, beach: rand(10) + 1, skiing: rand(10) + 1, snowboarding: rand(10) + 1, ziplining: rand(10) + 1})
+end
 
 1000.times do
   year = Time.now.year

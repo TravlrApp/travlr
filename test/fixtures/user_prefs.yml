@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  swimming: 1
+  hiking: 1
+  guided_tour: 1
+  diving: 1
+  climbing: 1
+  skydiving: 1
+  eating: 1
+  clubbing: 1
+  beach: 1
+  skiing: 1
+  snowboarding: 1
+  ziplining: 1
+
+two:
+  swimming: 1
+  hiking: 1
+  guided_tour: 1
+  diving: 1
+  climbing: 1
+  skydiving: 1
+  eating: 1
+  clubbing: 1
+  beach: 1
+  skiing: 1
+  snowboarding: 1
+  ziplining: 1

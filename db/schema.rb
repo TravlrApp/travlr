@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131210174753) do
+ActiveRecord::Schema.define(version: 20131210183311) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,24 @@ ActiveRecord::Schema.define(version: 20131210174753) do
   create_table "recommenders", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "user_prefs", force: true do |t|
+    t.integer  "swimming"
+    t.integer  "hiking"
+    t.integer  "diving"
+    t.integer  "climbing"
+    t.integer  "skydiving"
+    t.integer  "eating"
+    t.integer  "clubbing"
+    t.integer  "beach"
+    t.integer  "skiing"
+    t.integer  "snowboarding"
+    t.integer  "ziplining"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "touring"
   end
 
   create_table "users", force: true do |t|
